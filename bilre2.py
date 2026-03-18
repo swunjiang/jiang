@@ -245,7 +245,7 @@ def main():
         
         # 生成安全的文件名
         safe_title = re.sub(r'[\\/*?:"<>|]', "", title)[:50]  # 移除非法字符并截断
-        filename = os.path.join(output_dir, f"{bvid}_{datetime.now().strftime('%Y%m%d_%H%M%S')}_comments.csv")
+        filename = os.path.join(output_dir, f"{safe_title}_{bvid}_{datetime.now().strftime('%Y%m%d_%H%M%S')}_comments.csv")
         
         if save_comments(all_comments, filename):
             print(f"共获取 {comment_count} 条评论")
